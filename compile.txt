@@ -1,0 +1,2 @@
+gcc -g -fsanitize=address cub3D.c cub3d_utils.c parse_dot_cub.c check_map.c check_map2.c Libft/libft.a
+./a.out mapping.cub

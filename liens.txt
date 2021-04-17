@@ -1,0 +1,2 @@
+https://www.techytalk.info/linux-system-programming-open-file-read-file-and-write-file/
+http://pwet.fr/man/linux/fonctions_bibliotheques/tcl/open/
