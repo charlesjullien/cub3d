@@ -1,24 +1,12 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <string.h>
-#include <errno.h>
-#include <math.h>
-#include "get_next_line.h"
+#include <mlx.h>
 
-int main(int ac, char **av)
+int     main(void)
 {
-	int fd;
-	int c = 1;
-	char *line = NULL;
-	char *map;
+    void    *mlx;
+    void    *mlx_win;
 
-	fd = open(av[1], O_RDONLY);
-	while (c != 0)
-	{
-		c = get_next_line(fd, &line);
-		printf("%s\n", line);
-	}
+    mlx = mlx_init();
+    mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
+    mlx_loop(mlx);
 	return (0);
-}
+}       
