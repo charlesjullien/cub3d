@@ -24,7 +24,7 @@ void	get_colors(t_cub *cub, int *tab)
 			while(cub->line[i] == ' ')
 				i++;
 			if (cub->line[i] != '\0')
-				ft_error("get colors Elements organized in a wrong way in .cub\n");
+				ft_stop(EXIT_FAILURE, cub, "get colors : Elements organized in a wrong way in .cub");
 		}
 		j++;
 	}
@@ -39,7 +39,7 @@ void	get_texture(t_cub *cub, char **str)//**str = pointeur sur la bonne chaine d
 		i++;
 	*str = ft_strdup(&cub->line[i + 1]);// *str car pointeur
 	if (i > 2 || i == 0 || !*str)
-		ft_error("get texture Elements organized in a wrong way in .cub\n");
+		ft_stop(EXIT_FAILURE, cub, "get texture : Elements organized in a wrong way in .cub");
 }
 
 void	get_resolution(t_cub *cub)
@@ -62,7 +62,7 @@ void	get_resolution(t_cub *cub)
 	while(cub->line[i] == ' ')
 		i++;
 	if (cub->line[i] != '\0' || cub->line[0] != 'R')
-		ft_error("get rresolution Elements organized in a wrong way in .cub\n");
+		ft_stop(EXIT_FAILURE, cub, "get resolution : Elements organized in a wrong way in .cub");
 }
 
 void	get_elements(t_cub *cub)
@@ -84,7 +84,7 @@ void	get_elements(t_cub *cub)
 	else if (ft_strnstr(cub->line, "C ", 2) && cub->ceiling[0] == -1)
 		get_colors(cub, cub->ceiling);
 	else
-		printf("hey yo Elements organized in a wrong way in .cub at line = %s\n", cub->line);
+		ft_stop(EXIT_FAILURE, cub, "Elements organized in a wrong way in .cub");//at line x...
 }
 
 int	parse_dot_cub(char *map, t_cub *cub)
@@ -98,7 +98,7 @@ int	parse_dot_cub(char *map, t_cub *cub)
 	while (elements < 8)
 	{
 		if (mini_gnl(&cub->dot_cub[j], cub, &j) ==  0 && elements < 8)
-			return (ft_error("Elements organized in the wong way in .cub\n"));
+			ft_stop(EXIT_FAILURE, cub, "Elements organized in a wrong way in .cub");//at line x...petit doute sur si c'est bien là qu'il faut mettre ce if de check l du dessus.
 		printf("elements = %d et line = %s\n", elements, cub->line);
 		if (cub->line)
 		{
@@ -110,5 +110,6 @@ int	parse_dot_cub(char *map, t_cub *cub)
 	if (!check_map(cub, &cub->dot_cub[j]))
 		return (0);
 	display_description(cub);
-	return (0);
+	get_start_infos(cub, &cub->dot_cub[j]);
+	return (1);
 }

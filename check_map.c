@@ -128,7 +128,7 @@ int	check_map(t_cub *cub, char *map)
 	while (map[i])
 	{
 		if (!ft_strrchr("012NSWE \n", map[i]) || (count != 1 && count != 0))
-			ft_error("erreur dans la map... mauvais chars");
+			ft_stop(EXIT_FAILURE, cub, "Map doesn't respect mapping rules");
 		if (ft_strrchr("NSWE", map[i]))
 			count++;
 		i++;
@@ -143,7 +143,7 @@ int	check_map(t_cub *cub, char *map)
 		i++;
 	}
 	if (!checker(mat, size, 0))
-		ft_error("NOOOOOOOOOOOOOOOOOOOOOOOOON\n");
+		ft_stop(EXIT_FAILURE, cub, "Map doesn't respect mapping rules");
 	else
 		printf("YESSSSSSSSSSSSSSSSSSSSSSSSS\n");
 	return (1);

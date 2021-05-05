@@ -23,16 +23,28 @@ struct			s_cub
 	int		floor[3];
 	int		ceiling[3];
 	char	dot_cub[19000];
+	char 	**map;
 	char	*line;
 	char	*cub_file;
+	int		spr_pos[200];
+	int		spawn[2];
 };
 
-int ft_error(char *str);
+/*typedef struct s_	t_;
+struct			s_
+{
+
+};*/
+
 int	mini_gnl(char *map, t_cub *cub, int *j);
 void fill_from_dot_cub(t_cub *cub, char *map);
 void	display_description(t_cub *cub);
 int	check_map(t_cub *cub, char *map);
 int    check_first_out_walls(char **mat, int i, int l, int size);
 int	get_j(char **mat, int l);
+int		get_start_infos(t_cub *cub, char *map_in_1_D);
+void	ft_stop(int status, t_cub *cub, char *msg);
+void	free_all(t_cub *cub, int i);
+
 
 #endif

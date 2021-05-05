@@ -84,8 +84,12 @@ int    check_first_out_walls(char **mat, int i, int l, int size)
             seg = i;
             while (mat[l][seg] == '1')
                 seg++;
-            while (mat[l + 1][i] != '1' && i < seg && mat[l + 1][i])
+			//printf("i = %d, l = %d, mat[l + 1][i] = %c , l + 1 = %d et seg = %d, \n", i, l, mat[l + 1][i], (l + 1), seg);
+            while (i < ft_strlen(mat[l + 1]) && mat[l + 1][i] && mat[l + 1][i] != '1' && i < seg)
+			{
+				//printf("i = %d, l = %d, mat[l + 1][i] = %c et seg = %d, \n", i, (l + 1), mat[l + 1][i], seg);
                 i++;
+			}
             if (((i == seg && l == 0) || (i == seg && check_above(mat, l, i, l) == 0)) && verif(mat[l][i]))
                 return (0);
             i = seg;

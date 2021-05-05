@@ -1,11 +1,5 @@
 #include "cub3D.h"
 
-int	ft_error(char *str)
-{
-	printf("%s", str);
-	return (1);
-}
-
 void	fill_from_dot_cub(t_cub *cub, char *map)
 {
 	int rd;
