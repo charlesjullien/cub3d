@@ -27,6 +27,7 @@ void	get_spawn_pos(t_cub *cub)
 				get_sprites(cub, i, j, &sp_count);
 			if (ft_strchr("NSWE", cub->map[i][j]))
 			{
+				cub->sp_dir = cub->map[i][j];
 				cub->spawn[0] = i;//ligne, soit x
 				cub->spawn[1] = j;//colonne, soit y
 			}
@@ -53,5 +54,5 @@ int		get_start_infos(t_cub *cub, char *map_in_1_D)
 		printf("%s\n", cub->map[i]);
 		i++;
 	}
-	//open_game(cub);
+	open_game(cub);
 }

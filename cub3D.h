@@ -17,6 +17,7 @@ struct			s_cub
 	char	*east;
 	char	*west;
 	char	*sprite;
+	char	sp_dir;
 	int		fd;
 	int		res_x;
 	int 	res_y;
@@ -30,11 +31,47 @@ struct			s_cub
 	int		spawn[2];
 };
 
+typedef struct s_data	t_data;
+struct			s_data
+{
+	void	*mlx;
+	void	*win;
+	void	*img;
+	char	*addr;
+	int		res_x2;
+	int		res_y2;
+	int		bpp;
+	int		sline;//size_line.
+	int		endian;
+	int		go_up;
+	int		go_down;
+	int		go_right;
+	int		go_left;
+	int		right;//de là
+	int		left;
+	int		rot_left;
+	int		rot_right;
+	int		left_dir;
+	int		right_dir;//à là
+};
+
 /*typedef struct s_	t_;
 struct			s_
 {
-
+	
 };*/
+
+
+typedef struct s_ray	t_ray;
+struct			s_ray
+{
+	double	sp_posx;
+	double	sp_posy;
+	double	sp_dirx;
+	double	sp_diry;
+	double	sp_plax;
+	double	sp_play;
+};
 
 int	mini_gnl(char *map, t_cub *cub, int *j);
 void fill_from_dot_cub(t_cub *cub, char *map);
