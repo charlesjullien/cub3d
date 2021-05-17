@@ -38,6 +38,8 @@ struct			s_data
 	void	*win;
 	void	*img;
 	char	*addr;
+	void	*ray;//struct ray;
+	void	*cub;//struct cub;
 	int		res_x2;
 	int		res_y2;
 	int		bpp;
@@ -71,6 +73,7 @@ struct			s_ray
 	double	sp_diry;
 	double	sp_plax;
 	double	sp_play;
+	int		tex[8][4096];
 };
 
 int	mini_gnl(char *map, t_cub *cub, int *j);
@@ -82,6 +85,10 @@ int	get_j(char **mat, int l);
 int		get_start_infos(t_cub *cub, char *map_in_1_D);
 void	ft_stop(int status, t_cub *cub, char *msg);
 void	free_all(t_cub *cub, int i);
+void	open_game(t_cub *cub);
+void	get_texture(t_cub *cub, t_data *data, t_ray *ray);
+void	free_textures(t_data *data, t_data *tex);
+void	raycaster(t_cub *cub, t_data *data, t_ray *ray);
 
 
 #endif

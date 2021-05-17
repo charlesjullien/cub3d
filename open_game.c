@@ -9,7 +9,7 @@ void	define_window_size(t_data *data, t_cub *cub)
 		cub->res_x = data->res_x2;
 	if (cub->res_y > data->res_y2)
 		cub->res_y = data->res_y2;
-	data->res_x2 = cub->res_x;
+	data->res_x2 = cub->res_x;//bien verifier ces valeurs là !
 	data->res_y2 = cub->res_y;
 }
 
@@ -76,8 +76,9 @@ void	open_game(t_cub *cub)
 	t_data	data;
 	t_ray	ray;
 	
-	//data.ray = &ray; (mettre un ptr sur la struct ray dans data ?)
+	data.ray = &ray;
 	data.mlx = mlx_init();
+	data.cub = cub;
 	define_window_size(&data, cub);
 	data.win = mlx_new_window(data.mlx, cub->res_x, cub->res_y, "Cub3D");
 	data.img = mlx_new_image(data.mlx, cub->res_x, cub->res_y);
@@ -86,5 +87,5 @@ void	open_game(t_cub *cub)
 	init_move_and_pos(cub, &data, &ray);
 	define_position_ns(cub, &data, &ray);
 	get_texture(cub, &data, &ray);
-	raycaster(cub, &data, &ray);	
+	raycaster(cub, &data, &ray);
 }
