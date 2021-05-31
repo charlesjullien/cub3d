@@ -1,0 +1,8 @@
+-Printf la valeur des variables dans init floor. (selon la ou on spawn, changer la po de spawn et voir cet les val changent).
+
+-"cameraX is the x-coordinate on the camera plane that the current x-coordinate of the screen represents, done this way so that the right side of the screen will get coordinate 1, the center of the screen gets coordinate 0, and the left side of the screen gets coordinate -1. Out of this, the direction of the ray can be calculated as was explained earlier: as the sum of the direction vector, and a part of the plane vector. This has to be done both for the x and y coordinate of the vector (since adding two vectors is adding their x-coordinates, and adding their y-coordinates)."
+
+-https://permadi.com/1996/05/ray-casting-tutorial-3/#CREATING%20A%20WORLD
+-https://permadi.com/1996/05/ray-casting-tutorial-6/
+
+-https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-837-computer-graphics-fall-2012/lecture-notes/MIT6_837F12_Lec11.pdf
